@@ -17,6 +17,9 @@ public class LoginPage {
     @FindBy(name = "submit")
     private WebElement signBox;
 
+    @FindBy(css = ".alert.alert-error")
+    private WebElement wrongMessage;
+
     @FindBy(xpath = "//a[@href='/forgot-password.html']")
     private WebElement forgotPassword;
 
@@ -28,5 +31,9 @@ public class LoginPage {
   loginBox.sendKeys(user);
   passwordBox.sendKeys(passwrd);
   signBox.click();
+ }
+
+ public boolean wrongMsgIsVisible() {
+  return wrongMessage.isDisplayed();
  }
 }
