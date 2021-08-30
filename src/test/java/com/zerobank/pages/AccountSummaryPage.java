@@ -13,6 +13,6 @@ public class AccountSummaryPage extends OnlineBankingPage {
     @FindBy(css = ".board-header")
     public List<WebElement> boardHeaders;
 
-    @FindBy(xpath = "((//tr/th[1])[3])")
+    @FindBy(xpath = "(//table[@class='table'])[3]//th")
     public List<WebElement> columsName;
 }
