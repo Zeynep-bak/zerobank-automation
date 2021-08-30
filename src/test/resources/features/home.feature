@@ -12,7 +12,7 @@ Feature: menu options
       | ONLINE BANKING |
       | FEEDBACK       |
 
-  @wip
+
   Scenario: the user navigates Account summary
     Then the user navigates to ONLINE BANKING to Account summary
     And the title should be "Zero - Account Summary"
@@ -23,6 +23,7 @@ Feature: menu options
       | Loan Accounts       |
 
 
+    @wip
   Scenario:Credit Account Tables
     Then the user navigates to ONLINE BANKING to Account summary
     And Credit Account table have to following columns
