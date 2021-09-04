@@ -9,6 +9,8 @@ import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -66,5 +68,66 @@ public class NavigateStepdefs {
 
         }
 
+    @Then("the user navigates to ONLINE BANKING to Account activity")
+    public void theUserNavigatesToONLINEBANKINGToAccountActivity() {
+        homePage.clickOnlineBankingModule();
+        onlineBankingPage.clickAccountActivityIcon();
     }
+
+    @And("the drop down default option should be {string}")
+    public void theDropDownDefaultOptionShouldBe(String dropElement) {
+
+
+
+        Select dropDownEl =new Select(onlineBankingPage.accountDropDown);
+//        String expectedOption = dropElement;
+//        String actualOption = dropDownEl.getFirstSelectedOption().getText();
+//        System.out.println("expectedOption = " + expectedOption);
+//        System.out.println("actualOption = " + actualOption);
+        dropDownEl.selectByVisibleText("Savings");
+       String   expectedOption = "Savings";
+       String  actualOption = dropDownEl.getFirstSelectedOption().getText();
+        System.out.println("actualOption = " + actualOption);
+        Assert.assertEquals(actualOption,expectedOption);
+    }
+
+//    @And("the drop down options have to following columns")
+//    public void theDropDownOptionsHaveToFollowingColumns() {
+//        onlineBankingPage.clickDropDownMenu();
+//
+//        Select dropDownEl =new Select(onlineBankingPage.accountDropDown);
+//        List<WebElement> options = dropDownEl.getOptions();
+//        System.out.println("options.size() = " + options.size());
+//
+//        for (WebElement option : options) {
+//            System.out.println("option = " + option.getText());
+//        }
+//    }
+
+    @Then("the drop down options have to following columns")
+    public void the_drop_down_options_have_to_following_columns(List<WebElement> columns) {
+
+        Select dropDownEl = new Select(onlineBankingPage.accountDropDown);
+        List<WebElement> options = dropDownEl.getOptions();
+        System.out.println("options.size() = " + options.size());
+
+        for (WebElement option : options) {
+            System.out.println("option = " + option.getText());
+
+        }
+
+    }}
+
+
+
+
+
+
+
+
+
+
+
+
+
 

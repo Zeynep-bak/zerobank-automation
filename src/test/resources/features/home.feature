@@ -23,10 +23,22 @@ Feature: menu options
       | Loan Accounts       |
 
 
-    @wip
+
   Scenario:Credit Account Tables
     Then the user navigates to ONLINE BANKING to Account summary
     And Credit Account table have to following columns
       | Account     |
       | Credit Card |
       | Balance     |
+
+        @wip
+      Scenario: the user navigates account activity link
+        Then the user navigates to ONLINE BANKING to Account activity
+        And the title should be "Zero - Account Activity"
+        And the drop down default option should be "Savings"
+#       And the drop down options have to following columns
+#          | Savings     |
+#          | Checking    |
+#          | Loan        |
+#          | Credit	Card |
+#          | Brokerage   |
